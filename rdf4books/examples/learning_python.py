@@ -15,7 +15,11 @@ learning_python_1e["frbr:realizationOf"] = learning_python_work
 learning_python_1e["dc:title"] = "Learning Python"
 expressions.append(learning_python_1e)
 
-lp_1e_print_book = Book.new(complete_work_graph, "http://purl.org/NET/rdf4books/product/isbn-9781565924642")
+class ManifestBook(Manifestation, Book):
+    """frbr:Manifestation that is also a bibo:Book"""
+    pass
+
+lp_1e_print_book = ManifestBook.new(complete_work_graph, "http://purl.org/NET/rdf4books/product/isbn-9781565924642")
 lp_1e_print_book["frbr:embodimentOf"] = learning_python_1e
 learning_python_1e["frbr:embodiment"] = lp_1e_print_book
 
