@@ -1,4 +1,5 @@
 from rdf4books.vocabs.frbr import *
+from rdf4books.vocabs.bibo import *
 from pymantic.util import en, de
 from rdflib import ConjunctiveGraph, Namespace
 complete_work_graph = ConjunctiveGraph()
@@ -14,7 +15,7 @@ learning_python_1e["frbr:realizationOf"] = learning_python_work
 learning_python_1e["dc:title"] = "Learning Python"
 expressions.append(learning_python_1e)
 
-lp_1e_print_book = Manifestation.new(complete_work_graph, "http://purl.org/NET/rdf4books/product/isbn-9781565924642")
+lp_1e_print_book = Book.new(complete_work_graph, "http://purl.org/NET/rdf4books/product/isbn-9781565924642")
 lp_1e_print_book["frbr:embodimentOf"] = learning_python_1e
 learning_python_1e["frbr:embodiment"] = lp_1e_print_book
 
